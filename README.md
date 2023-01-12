@@ -11,7 +11,7 @@ There are multiple ways one could define a fair ranking system. I chose to defin
 - A more closely matched game might award more ELO to the winner than a less closely matched one.
 - The winner of a game will (almost*) gain the same amount as the loser loses.
 
-* There is a damper to ELO changes, as explained below.
+\* There is a damper to ELO changes, as explained below.
 
 ### Damper
 In the event of a player quitting the game, the sum of all the ELO's in the system will no longer be 0. To combat this, I implemented a damper to ELO changes. When a player is recognized as "quitting", their profile will be deleted, and their ELO will be added to the damper (which is a running sum). In each conclucded game, the ELO awarded will be slightly off-balance in the direction of decreasing the damper. (ex: if the current damper is -300, the winner will gain slightly less ELO than the loser loses, and the damper might become 299.8.)
